@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Reflection;
 
 namespace App
 {
@@ -10,6 +8,16 @@ namespace App
     {
         static void Main(string[] args)
         {
+            var descriptionAttribute = Assembly.GetExecutingAssembly()
+                .GetCustomAttributes(typeof(AssemblyTitleAttribute), false)
+                .OfType<AssemblyTitleAttribute>()
+                .FirstOrDefault();
+
+            if (descriptionAttribute != null)
+            {
+                Console.WriteLine(descriptionAttribute.Title);
+            }
+            Console.ReadKey();
         }
     }
 }
