@@ -151,3 +151,4 @@ $RECYCLE.BIN/
 .DS_Store
 
 version.txt
+App/Properties/AssemblyInfo.cs
